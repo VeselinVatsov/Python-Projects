@@ -1,0 +1,45 @@
+import random
+
+user_score = 0
+computer_score = 0
+
+options = ["rock", "paper", "scissors"]
+
+while(True):
+    user_input = input("Choose form Rock/Paper/Scissors or press Q to quit: ").lower()
+
+    if user_input == "q":
+        break
+
+    if user_input not in options:
+        print("Invalid option.")
+        continue
+
+    random_number = random.randint(0,2)
+    #0 = rock, 1 = paper, 2 = scissors
+    computer_choise = options[random_number]
+
+    print(f"Computer choosed {computer_choise}.")
+
+    if user_input == "rock" and computer_choise == "scissors":
+        user_score += 1
+        print("You won.")
+
+    elif user_input == "paper" and computer_choise == "rock":
+        user_score += 1
+        print("You won.")
+
+    elif user_input == "scissors" and computer_choise == "paper":
+        user_score += 1
+        print("You won.")
+
+    elif user_input == computer_choise:
+        print("It's a tie.")
+
+    else:
+        print("You lost!")
+        computer_score += 1
+        continue
+
+print(f"You won {user_score} times.")
+print(f"Computer won {computer_score} times.")
