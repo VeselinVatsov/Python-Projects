@@ -1,0 +1,30 @@
+import random
+
+
+def difficulty_changer(diff):
+    if diff == "easy":
+        num1 = random.randint(1, 10)  # Guessing between 1 and 10
+    elif diff == "medium":
+        num1 = random.randint(1, 25)  # Guessing between 1 and 25
+    elif diff == "hard":
+        num1 = random.randint(1, 50)  # Guessing between 1 and 50
+
+    return num1
+
+
+difficulty = input("Choose a difficulty: Easy/Medium/Hard: ").lower()
+
+number = difficulty_changer(difficulty)
+guessed = False
+print(number)
+
+while not guessed:
+    guess = int(input("Guess a number: "))
+
+    if guess == number:
+        print("Congratulations! You guessed the correct number.")
+        guessed = True
+    elif guess < number:
+        print("Too low! Try again.")
+    else:
+        print("Too high! Try again.")
